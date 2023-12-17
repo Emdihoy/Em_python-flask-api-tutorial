@@ -20,10 +20,12 @@ def add_new_todo():
 
 position = 0
 
-@app.route('/todos/<position>', methods=['DELETE'])
+@app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
     print("This is the position to delete: ",position)
-    return 'something'
+    del todos[position]
+    response_body = todos
+    return response_body
 
 # These two lines should always be at the end of your app.py file.
 if __name__ == '__main__':
